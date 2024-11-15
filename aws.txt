@@ -1,0 +1,24 @@
+Steps:
+
+How to deploy in AWS EC2?
+1. Create IAM roles. 
+- Select trusted entity to CodeDeploy
+- Add permissions for EC2, S3, CodeDeploy
+
+2. Create a new S3 container
+
+3. Create a new EC2 instance, with Amazon Linux platform and all the configuration you need. (if unsure, use the default t2.micro)
+4. If firsttime, need to create a key value pair
+5. Add the above created IAM role
+4. Once up and running
+5. Connect with the EC2 instance via the Connct button in the EC2 details page.
+ Follow this step to install codedeploy agent on the EC2 instacne using 
+ https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent-operations-install-ubuntu.html 
+6. Copy the ARN of the instance before going to next step
+
+4. Go to CodeDeploy
+5. Create a new Application
+6. Select configuration such that to deploy to EC2
+7. Add a deployment group, where you need to post the ARN coppied earlier, and IAM role created earlier
+8. Create deployment, and connect the S3 location where you stored the zip file.
+9. Wait for it to complete deployment, and then you can go back to EC2 instance page.
